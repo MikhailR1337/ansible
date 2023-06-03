@@ -1,0 +1,11 @@
+- hosts: webservers
+  vars:
+    ansible_ssh_user: 'fanrik'
+
+  tasks:
+    - name: remove git
+      ansible.builtin.apt:
+        name: git
+        state: absent
+      become: true
+      become_user: fanrik

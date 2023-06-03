@@ -1,0 +1,12 @@
+- hosts: webservers
+  vars:
+    ansible_ssh_user: 'fanrik'
+
+  tasks:
+    - name: install git
+      ansible.builtin.apt:
+        name: git
+        state: present
+        update_cache: yes
+      become: true
+      become_user: fanrik
